@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Welcome</title>
@@ -9,7 +9,8 @@
 </head>
 <body>
 <h1>This is a heading</h1>
-<p class = "c">Welcome, Relu!</p>
+<p class = "c">Welcome, Relusu!</p>
+<div>Web Application. Passed parameter : th:text="${message}"</div>
 <form action="/spots" method="get">
 	<input type="submit" class="btn btn-success" value="Submit">
 </form>

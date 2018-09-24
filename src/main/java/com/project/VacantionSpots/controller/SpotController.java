@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.project.VacantionSpots.model.Spot;
 import com.project.VacantionSpots.service.SpotService;
@@ -33,5 +34,11 @@ public class SpotController {
 	@RequestMapping(value = "/spots/{id}", method = RequestMethod.GET) //????? Functioneaza si ptr id-uri gresite
 	public Spot getSpotById(@PathVariable long id){
 		return spotService.getSpotById(new Long(id));
+	}
+	@RequestMapping("/goToViewPage")
+	public ModelAndView passParametersWithModelAndView() {
+	    ModelAndView modelAndView = new ModelAndView("viewPage");
+	    modelAndView.addObject("message", "Baeldung");
+	    return modelAndView;
 	}
 }
