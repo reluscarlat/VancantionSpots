@@ -25,6 +25,13 @@ public class SpotController {
 		return "welcome";
 	}
 	
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public ModelAndView messages() {
+        ModelAndView mav = new ModelAndView("welcome");
+        mav.addObject("messages", spotService.getAllSpots());
+        return mav;
+    }
+	
 	@RequestMapping(value = "/spots", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Spot> getAllSpots(){
@@ -34,11 +41,5 @@ public class SpotController {
 	@RequestMapping(value = "/spots/{id}", method = RequestMethod.GET) //????? Functioneaza si ptr id-uri gresite
 	public Spot getSpotById(@PathVariable long id){
 		return spotService.getSpotById(new Long(id));
-	}
-	@RequestMapping("/goToViewPage")
-	public ModelAndView passParametersWithModelAndView() {
-	    ModelAndView modelAndView = new ModelAndView("viewPage");
-	    modelAndView.addObject("message", "Baeldung");
-	    return modelAndView;
 	}
 }
