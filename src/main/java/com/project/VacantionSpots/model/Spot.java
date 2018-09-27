@@ -21,13 +21,13 @@ public class Spot implements Serializable {
 	private String value;
 	
 	@Column
-	private Double daily_price;
+	private Double dailyPrice;
 	
 	@Column
-	private Date start_date;
+	private Date startDate;
 
 	@Column
-	private Date end_date;
+	private Date endDate;
 	
 	@ManyToOne
 	@JoinColumn(name= "location_id")
@@ -49,28 +49,28 @@ public class Spot implements Serializable {
 		this.value = value;
 	}
 
-	public Double getDaily_price() {
-		return daily_price;
+	public Double getDailyPrice() {
+		return dailyPrice;
 	}
 
-	public void setDaily_price(Double daily_price) {
-		this.daily_price = daily_price;
+	public void setDailyPrice(Double dailyPrice) {
+		this.dailyPrice = dailyPrice;
 	}
 
-	public Date getStart_date() {
-		return start_date;
+	public Date getStartDate() {
+		return startDate;
 	}
 
-	public void setStart_date(Date start_date) {
-		this.start_date = start_date;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
-	public Date getEnd_date() {
-		return end_date;
+	public Date getEndDate() {
+		return endDate;
 	}
 
-	public void setEnd_date(Date end_date) {
-		this.end_date = end_date;
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
 
 	public Location getLocation() {
@@ -81,13 +81,13 @@ public class Spot implements Serializable {
 		this.location = location;
 	}
 
-	public Spot(Long id, String value, Double daily_price, Date start_date, Date end_date, Location location) {
+	public Spot(Long id, String value, Double dailyPrice, Date startDate, Date endDate, Location location) {
 		super();
 		this.id = id;
 		this.value = value;
-		this.daily_price = daily_price;
-		this.start_date = start_date;
-		this.end_date = end_date;
+		this.dailyPrice = dailyPrice;
+		this.startDate = startDate;
+		this.endDate = endDate;
 		this.location = location;
 	}
 
@@ -99,11 +99,11 @@ public class Spot implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((daily_price == null) ? 0 : daily_price.hashCode());
-		result = prime * result + ((end_date == null) ? 0 : end_date.hashCode());
+		result = prime * result + ((dailyPrice == null) ? 0 : dailyPrice.hashCode());
+		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((location == null) ? 0 : location.hashCode());
-		result = prime * result + ((start_date == null) ? 0 : start_date.hashCode());
+		result = prime * result + ((startDate == null) ? 0 : startDate.hashCode());
 		result = prime * result + ((value == null) ? 0 : value.hashCode());
 		return result;
 	}
@@ -117,15 +117,15 @@ public class Spot implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Spot other = (Spot) obj;
-		if (daily_price == null) {
-			if (other.daily_price != null)
+		if (dailyPrice == null) {
+			if (other.dailyPrice != null)
 				return false;
-		} else if (!daily_price.equals(other.daily_price))
+		} else if (!dailyPrice.equals(other.dailyPrice))
 			return false;
-		if (end_date == null) {
-			if (other.end_date != null)
+		if (endDate == null) {
+			if (other.endDate != null)
 				return false;
-		} else if (!end_date.equals(other.end_date))
+		} else if (!endDate.equals(other.endDate))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -137,10 +137,10 @@ public class Spot implements Serializable {
 				return false;
 		} else if (!location.equals(other.location))
 			return false;
-		if (start_date == null) {
-			if (other.start_date != null)
+		if (startDate == null) {
+			if (other.startDate != null)
 				return false;
-		} else if (!start_date.equals(other.start_date))
+		} else if (!startDate.equals(other.startDate))
 			return false;
 		if (value == null) {
 			if (other.value != null)
@@ -152,8 +152,8 @@ public class Spot implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Spot [id=" + id + ", value=" + value + ", daily_price=" + daily_price + ", start_date=" + start_date
-				+ ", end_date=" + end_date + ", location=" + location + "]";
+		return "Spot [id=" + id + ", value=" + value + ", dailyPrice=" + dailyPrice + ", startDate=" + startDate
+				+ ", endDate=" + endDate + ", location=" + location + "]";
 	}
 
 	

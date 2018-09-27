@@ -8,16 +8,42 @@
 <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
-<h1>This is a heading</h1>
-<p class = "c">Welcome, Relusu!</p>
-<form action="/spots" method="get">
-	<input type="submit" class="btn btn-success" value="Submit">
-</form>
-<tr th:each="message : ${messages}">
-        <td th:text="${message.id}">1</td>
-        <td><a href="#" th:text="${message.value}">Value ...</a></td>
-        <td th:text="${message.daily_price}">Daily price ...</td>
-</tr>
-
+<div>
+	<ul>
+	  <li><a class="active" href="/">Home</a></li>
+	  <li><a href="news">News</a></li>
+	  <li><a href="contact">Contact</a></li>
+	  <li><a href="about">About</a></li>
+	</ul>
+</div>
+<div class="container">
+	<div class="space"></div>
+	<div>
+		<table>
+		<tr>
+			<th>Spot name</th>
+			<th>Location</th>
+			<th>County</th>
+			<th>Country</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th>Price/Day</th>
+		</tr>
+		<tr th:each="spot : ${spots}">
+			<td th:text ="${spot.value}"></td>
+			<td th:text ="${spot.location.value}"></td>
+			<td th:text ="${spot.location.county.value}"></td>
+			<td th:text ="${spot.location.county.country.value}"></td>
+			<td th:text ="${spot.startDate}"></td>
+			<td th:text ="${spot.endDate}"></td>
+			<td th:text ="${spot.dailyPrice}"></td>
+		</tr>
+		</table>
+	</div>
+	<div class="space"></div>
+	<form action="/spots" method="get">
+		<input type="submit" class="btn btn-success" value="Submit">
+	</form>	
+</div>
 </body>
 </html>

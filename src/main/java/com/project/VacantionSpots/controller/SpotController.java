@@ -25,13 +25,20 @@ public class SpotController {
 		return "welcome";
 	}
 	
+//    @RequestMapping(value = "/", method = RequestMethod.GET)
+//    public ModelAndView messages() {
+//        ModelAndView mav = new ModelAndView("welcome");
+//        mav.addObject("messages", spotService.getAllSpots());
+//        return mav;
+//    }
+	
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView messages() {
+    public ModelAndView FindAllSpots() {
         ModelAndView mav = new ModelAndView("welcome");
-        mav.addObject("messages", spotService.getAllSpots());
+        mav.addObject("spots", spotService.getAllSpots());
         return mav;
     }
-	
+    
 	@RequestMapping(value = "/spots", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Spot> getAllSpots(){
