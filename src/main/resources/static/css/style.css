@@ -56,3 +56,7 @@ li a:hover:not(.active) {
 .container {
 	margin-left: 10px;
 }
+
+.filter {
+	style="display:inline;
+}
