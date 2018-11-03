@@ -3,6 +3,7 @@ package com.project.VacantionSpots.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,7 @@ import com.project.VacantionSpots.service.CountyService;
 public class CountyServiceImpl implements CountyService {
 
 	@Autowired
+	@Qualifier(value="countyRepository")
 	CountyRepository countyRepository;
 	
 	@Override
@@ -39,4 +41,7 @@ public class CountyServiceImpl implements CountyService {
 		
 	}
 
+	public void getCountyByCountryId(int id) {
+		
+	}
 }

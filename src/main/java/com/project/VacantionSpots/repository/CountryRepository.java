@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.project.VacantionSpots.model.Country;
 @Repository
 public interface CountryRepository extends JpaRepository<Country, Integer>{
-
+	
 }

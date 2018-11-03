@@ -12,15 +12,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.VacantionSpots.model.Spot;
+import com.project.VacantionSpots.service.CountryService;
+import com.project.VacantionSpots.service.CountyService;
+import com.project.VacantionSpots.service.LocationService;
 import com.project.VacantionSpots.service.SpotService;
 
 @Controller
-public class SpotController {
+public class WelcomePageController {
+	@Autowired
+	@Qualifier(value = "countryServiceImpl")
+	CountryService countryService;
+	
+	@Autowired
+	@Qualifier(value = "countyServiceImpl")
+	CountyService countyService;
+	
+	@Autowired
+	@Qualifier(value = "locationServiceImpl")
+	LocationService locationService;
+	
 	@Autowired
 	@Qualifier(value = "spotServiceImpl")
 	SpotService spotService;
 	
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/" )
 	public String welcome() {
 		return "welcome";
 	}
@@ -28,6 +43,9 @@ public class SpotController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView FindAllSpots() {
         ModelAndView mav = new ModelAndView("welcome");
+        mav.addObject("countries", countryService.getAllCountries());
+        mav.addObject("counties",countyService.getAllCounties());
+        mav.addObject("locations", locationService.getAllLocations());
         mav.addObject("spots", spotService.getAllSpots());
         return mav;
     }
